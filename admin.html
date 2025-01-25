@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ панель</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Админ панель</h1>
+    <nav>
+      <a href="index.html">Выйти</a>
+    </nav>
+  </header>
+  <main>
+    <section id="admin-actions">
+      <h2>Управление пользователями</h2>
+      
+      <div>
+        <label>Имя пользователя:</label>
+        <input type="text" id="admin-username" placeholder="Введите имя пользователя">
+      </div>
+
+      <button onclick="banUserAction()">Забанить</button>
+      <button onclick="unbanUserAction()">Разбанить</button>
+      <button onclick="muteUserAction()">Мут</button>
+      <button onclick="unmuteUserAction()">Размут</button>
+      
+      <div>
+        <label>Новый пароль:</label>
+        <input type="text" id="new-password" placeholder="Введите новый пароль">
+        <button onclick="changePasswordAction()">Изменить пароль</button>
+      </div>
+    </section>
+
+    <section id="user-progress">
+      <h2>Прогресс пользователя</h2>
+      <button onclick="checkProgress()">Проверить прогресс</button>
+      <pre id="progress-output"></pre>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    // Действия администратора
+    function banUserAction() {
+      const username = document.getElementById("admin-username").value.trim();
+      banUser(username);
+    }
+
+    function unbanUserAction() {
+      const username = document.getElementById("admin-username").value.trim();
+      unbanUser(username);
+    }
+
+    function muteUserAction() {
+      const username = document.getElementById("admin-username").value.trim();
+      muteUser(username);
+    }
+
+    function unmuteUserAction() {
+      const username = document.getElementById("admin-username").value.trim();
+      unmuteUser(username);
+    }
+
+    function changePasswordAction() {
+      const username = document.getElementById("admin-username").value.trim();
+      const newPassword = document.getElementById("new-password").value.trim();
+      if (!newPassword) {
+        alert("Введите новый пароль!");
+        return;
+      }
+      changePassword(username, newPassword);
+    }
+
+    function checkProgress() {
+      const username = document.getElementById("admin-username").value.trim();
+      const progress = getProgress(username);
+      if (progress) {
+        document.getElementById("progress-output").textContent = JSON.stringify(progress, null, 2);
+      } else {
+        alert("Пользователь не найден!");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация и вход</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Добро пожаловать на платформу!</h1>
+  </header>
+  <main>
+    <!-- Секция регистрации -->
+    <section id="registration-section">
+      <h2>Регистрация</h2>
+      <form id="registration-form">
+        <label for="reg-username">Логин:</label>
+        <input type="text" id="reg-username" placeholder="Введите логин" required>
+
+        <label for="reg-password">Пароль:</label>
+        <input type="password" id="reg-password" placeholder="Введите пароль" required>
+
+        <button type="submit">Зарегистрироваться</button>
+      </form>
+    </section>
+
+    <!-- Секция входа -->
+    <section id="auth-section">
+      <h2>Авторизация</h2>
+      <form id="login-form">
+        <label for="login-username">Логин:</label>
+        <input type="text" id="login-username" placeholder="Введите логин" required>
+
+        <label for="login-password">Пароль:</label>
+        <input type="password" id="login-password" placeholder="Введите пароль" required>
+
+        <button type="submit">Войти</button>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
